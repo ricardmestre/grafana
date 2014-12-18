@@ -191,14 +191,15 @@ function (angular, _, kbn, InfluxSeries, InfluxQueryBuilder) {
     InfluxDatasource.prototype.saveDashboard = function(dashboard) {
       var tags = dashboard.tags.join(',');
       var title = dashboard.title;
+      var description = dashboard.description;
       var temp = dashboard.temp;
       var id = kbn.slugifyForUrl(title);
       if (temp) { delete dashboard.temp; }
 
       var data = [{
         name: 'grafana.dashboard_' + btoa(id),
-        columns: ['time', 'sequence_number', 'title', 'tags', 'dashboard', 'id'],
-        points: [[1000000000000, 1, title, tags, angular.toJson(dashboard), id]]
+        columns: ['time', 'sequence_number', 'title', 'tags', 'dashboard', 'id', 'description'],
+        points: [[1000000000000, 1, title, tags, angular.toJson(dashboard), id, description]]
       }];
 
       if (temp) {
@@ -341,10 +342,12 @@ function (angular, _, kbn, InfluxSeries, InfluxQueryBuilder) {
           var dashCol = _.indexOf(results[i].columns, 'title');
           var tagsCol = _.indexOf(results[i].columns, 'tags');
           var idCol = _.indexOf(results[i].columns, 'id');
+          var descCol = _.indexOf(results[i].columns, 'description');
 
           var hit =  {
             id: results[i].points[0][dashCol],
             title: results[i].points[0][dashCol],
+            description: results[i].points[0][descCol],
             tags: results[i].points[0][tagsCol].split(",")
           };
 

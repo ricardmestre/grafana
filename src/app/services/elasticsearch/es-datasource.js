@@ -166,6 +166,7 @@ function (angular, _, config, kbn, moment) {
         group: 'guest',
         title: title,
         tags: dashboard.tags,
+        description: dashboard.description,
         dashboard: angular.toJson(dashboard)
       };
 
@@ -287,7 +288,8 @@ function (angular, _, config, kbn, moment) {
             displayHits.dashboards.push({
               id: hit._id,
               title: hit._source.title,
-              tags: hit._source.tags
+              tags: hit._source.tags,
+              description: hit._source.description
             });
           }
 
