@@ -39,5 +39,22 @@ function (angular, kbn) {
         }
       };
     });
+  angular
+    .module('grafana.directives')
+    .directive('qtip', [function() {
+      var directiveObj = {
+        scope: {
+          qtipContent: '=',
+          qtipCallback: '&',
+          qtipContext: '@',
+          visible:'='
+        },
+        controller: 'QtipController',
+        link: function (scope) {
+          scope.attachQtip();
+        }
+      };
+      return directiveObj;
+    }]);
 
 });
