@@ -7,7 +7,6 @@ define([
   './dashEditLink',
   './ngModelOnBlur',
   './tip',
-  './qtip',
   './confirmClick',
   './configModal',
   './spectrumPicker',

@@ -1,8 +1,9 @@
 define([
   'angular',
-  'kbn',
+  'jquery',
+  'jquery.qtip2',
 ],
-function (angular, kbn) {
+function (angular, $) {
   "use strict";
 
   var module=angular.module('grafana.controllers');
@@ -11,8 +12,8 @@ function (angular, kbn) {
     ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
       var defaultOptions = {
         position: {
-          my: 'bottom center',
-          at: 'top center'
+          my: 'top center',
+          at: 'bottom center'
         },
         style: {
           classes: 'qtip-default'
@@ -46,7 +47,6 @@ function (angular, kbn) {
       });
       $scope.attachQtip = function() {
         var css = $attrs["qtipCss"] ? $attrs["qtipCss"] : 'qtip-default';
-        var el = $element;
         var thisOptions = {
           content: {
             text: $scope.qtipContent.text,

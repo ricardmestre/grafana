@@ -12,8 +12,8 @@ function (angular, $, _) {
       var linkTemplate =
           '<span class="panel-title drag-handle pointer">' +
             '<span class="panel-title-text drag-handle">{{panel.title | interpolateTemplateVars}}' +
-            '<span ng-show="panel.description !== null && panel.description.length">'+
-            '<tip icon="info-sign" place="bottom">{{panel.description}}</tip></span></span>' +
+            '<span ng-show="panel.description !== null && panel.description.length"' +
+            ' qtip class=\'icon-info-sign\' qtip-content="{title:\'Panel description\', text:panel.description}">'+
             '<span class="panel-links-icon"></span>' +
           '</span>';
 

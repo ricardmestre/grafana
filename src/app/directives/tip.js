@@ -56,5 +56,4 @@ function (angular, kbn) {
       };
       return directiveObj;
     }]);
-
 });
