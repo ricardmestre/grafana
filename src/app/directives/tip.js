@@ -49,7 +49,7 @@ function (angular, kbn) {
           qtipContext: '@',
           visible:'='
         },
-        controller: 'QtipController',
+        controller: 'qtipController',
         link: function (scope) {
           scope.attachQtip();
         }

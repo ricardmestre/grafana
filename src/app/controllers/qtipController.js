@@ -8,18 +8,18 @@ function (angular, $) {
 
   var module=angular.module('grafana.controllers');
 
-  module.controller('QtipController',
+  module.controller('qtipController',
     ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
       var defaultOptions = {
         position: {
-          my: 'top center',
-          at: 'bottom center'
+          my: 'left top',
+          at: 'center right'
         },
         style: {
-          classes: 'qtip-default'
+          classes: 'qtip-bootstrap'
         },
         show: {
-          delay: 500,
+          delay: 100,
           when: 'mouseover',
           solo: true
         },
@@ -46,7 +46,7 @@ function (angular, $) {
         }
       });
       $scope.attachQtip = function() {
-        var css = $attrs["qtipCss"] ? $attrs["qtipCss"] : 'qtip-default';
+        var css = $attrs["qtipCss"] ? $attrs["qtipCss"] : 'qtip-bootstrap';
         var thisOptions = {
           content: {
             text: $scope.qtipContent.text,

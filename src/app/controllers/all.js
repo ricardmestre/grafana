@@ -17,5 +17,5 @@ define([
   './templateEditorCtrl',
   './sharePanelCtrl',
   './jsonEditorCtrl',
-  './QtipController',
+  './qtipController',
 ], function () {});
