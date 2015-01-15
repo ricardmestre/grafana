@@ -23,6 +23,10 @@ function (angular, _, $) {
           self.update({ fullscreen: false });
         }
       };
+      
+      $scope.getDescription = function(element) {
+        return {title:'Dashboard description ', text: element.description};
+      };
 
       $scope.onAppEvent('$routeUpdate', function() {
         var urlState = self.getQueryStringState();
@@ -30,10 +34,10 @@ function (angular, _, $) {
           self.update(urlState, true);
         }
       });
-
+      
       this.update(this.getQueryStringState(), true);
       this.expandRowForPanel();
-    }
+    }    
 
     DashboardViewState.prototype.expandRowForPanel = function() {
       if (!this.state.panelId) { return; }

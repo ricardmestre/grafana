@@ -49,9 +49,9 @@ function (angular, $) {
         var css = $attrs["qtipCss"] ? $attrs["qtipCss"] : 'qtip-bootstrap';
         var thisOptions = {
           content: {
-            text: $scope.qtipContent.text,
+            text: $scope.qtipContent ? $scope.qtipContent.text : '',
             title: {
-              text: $scope.qtipContent.title
+              text: $scope.qtipContent ? $scope.qtipContent.title : '',
             }
           },
           position: {
@@ -62,8 +62,10 @@ function (angular, $) {
           },
           events: {
             show: function (event, api) {
-              var text = $scope.qtipContent.text;
-              var title = $scope.qtipContent.title;
+              if($scope.qtipContent){
+                var text = $scope.qtipContent.text;
+                var title = $scope.qtipContent.title;
+              }
               if ($scope.qtipCallback) {
                 var newContent = $scope.qtipCallback({ id: $scope.qtipContext });
                 if (newContent) {
@@ -72,8 +74,8 @@ function (angular, $) {
                 }
               }
               api.set('content.text', text);
-              api.set('context.title', title);
-            }
+              api.set('content.title', title);
+            },
           }
         };
         var options = $scope.getQtipOptions(thisOptions);

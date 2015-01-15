@@ -4,7 +4,7 @@
 			<span class="brand">
 				<img class="logo-icon" src="img/fav32.png" bs-tooltip="'Grafana'" data-placement="bottom"></img>
 				<span class="page-title" >{{dashboard.title}}
-        <span ng-show="dashboard.description !== null && dashboard.description.length" qtip class='icon-info-sign' qtip-content="{title:'Dashboard description', text:dashboard.description}"></span>
+        <qtip ng-show="dashboard.description !== null && dashboard.description.length" qtip-callback='getDescription(dashboard)' class='icon-info-sign'></qtip>
         </span>
       </span>
 			<ul class="nav pull-right" ng-controller='DashboardNavCtrl' ng-init="init()">
